@@ -9,7 +9,7 @@
          stopOnFailure="false"
          syntaxCheck="true"
          verbose="false"
-         bootstrap="vendor/bootstrap.php"
+         bootstrap="/vendor/bootstrap.php"
 >
     <testsuites>
         <testsuite name="String class Tests Suite">
