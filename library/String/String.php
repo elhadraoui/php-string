@@ -7,7 +7,7 @@ namespace String;
  * @author Hassan Amouhzi
  * 
  */
-class String implements \ArrayAccess {
+class String implements \ArrayAccess, \Iterator {
 	
 	/**
 	 * @var string
@@ -79,5 +79,27 @@ class String implements \ArrayAccess {
 
 	public function offsetUnset($index) {
 		unset($this->value[$index]);
+	}
+	
+	private $position = 0;
+	
+	function rewind() {
+		$this->position = 0;
+	}
+	
+	function current() {
+		return $this->value[$this->position];
+	}
+	
+	function key() {
+		return $this->position;
+	}
+	
+	function next() {
+		++$this->position;
+	}
+	
+	function valid() {
+		return isset($this->value[$this->position]);
 	}
 }
