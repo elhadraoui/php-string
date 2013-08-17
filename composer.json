@@ -1,4 +1,19 @@
 {
     "name": "php-mod/string",
-    "version": "0.1"
+    "type": "library",
+    "description": "String class for PHP",
+    "keywords": ["string"],
+    "license": "MIT",
+    "authors": [
+    {
+        "name": "Hassan Amouhzi",
+        "email": "hassan@anezi.net",
+        "homepage": "http://hassan.amouhzi.com/"
+    }
+    ],
+    "autoload": {
+        "psr-0": {
+            "String": "library"
+        }
+    }
 }
