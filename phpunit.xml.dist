@@ -1,12 +1,21 @@
-<phpunit bootstrap="vendor/Bootstrap.php" colors="true">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="true"
+         verbose="false"
+         bootstrap="vendor/bootstrap.php"
+>
     <testsuites>
-        <testsuite name="String Test Suite">
+        <testsuite name="String class Tests Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist>
-            <directory suffix=".php">library/String</directory>
-        </whitelist>
     </filter>
 </phpunit>
