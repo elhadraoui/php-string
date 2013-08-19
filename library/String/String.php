@@ -102,4 +102,71 @@ class String implements \ArrayAccess, \Iterator {
 	function valid() {
 		return isset($this->value[$this->position]);
 	}
+	
+	/**
+	 * Replaces each substring of this string that matches the literal target sequence
+	 * with the specified literal replacement sequence.
+	 * The replacement proceeds from the beginning of the string to the end,
+	 * for example, replacing "aa" with "b" in the string "aaa" will result in "ba"
+	 * rather than "ab".
+	 * @param string $target
+	 * @param string $replacement
+	 * @return \String\String
+	 */
+	public function replace($target, $replacement) {
+		return new self(str_replace($target, $replacement, $this->value));
+	}
+	
+	/**
+	 * Splits this string around matches of the given regular expression.
+	 * @param string $regex the delimiting regular expression
+	 * @return array the array of strings computed by splitting this string around
+	 * matches of the given regular expression
+	 */
+	public function split($regex) {
+		$keywords = preg_split($regex, $this->value);
+		$array = array();
+		foreach($keywords as $keyword) {
+			$array[] = new self($keyword);
+		}
+		return $array;
+	}
+	
+	/**
+	 * Make a string lowercase
+	 *
+	 * @return \String\String the lowercased string.
+	 */
+	public function toLowerCase() {
+		return new self(strtolower($this->value));
+	}
+	
+	/**
+	 * Make a string uppercase
+	 *
+	 * @return \String\String the uppercased string.
+	 */
+	public function toUpperCase() {
+		return new self(strtoupper($this->value));
+	}
+	
+	/**
+	 * The value of this object.
+	 *
+	 * @return string The value of this object
+	 */
+	public function toString() {
+		return $this->__toString();
+	}
+	
+	/**
+	 * Converts this string to a new character array.
+	 *
+	 * @return array a newly allocated character array whose length is the length
+	 * of this string and whose contents are initialized to contain the character
+	 * sequence represented by this string.
+	 */
+	public function toCharArray() {
+		return str_split($this->value);
+	}
 }
